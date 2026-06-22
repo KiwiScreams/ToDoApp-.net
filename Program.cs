@@ -2,15 +2,15 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using ToDoApp_final.Data;
+using ToDoApp_final.Forms;
 using ToDoApp_final.Services;
 
 namespace ToDoApp_final
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
+        public static ServiceProvider ServiceProvider { get; private set; } = null!;
+
         [STAThread]
         static void Main()
         {
@@ -33,11 +33,13 @@ namespace ToDoApp_final
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(connectionString));
 
-            //services.AddTransient<Form1>();
+            services.AddTransient<UserService>();
 
-            //ServiceProvider = services.BuildServiceProvider();
+            services.AddTransient<RegisterForm>();
 
-            //Application.Run(ServiceProvider.GetRequiredService<Form1>());
+            ServiceProvider = services.BuildServiceProvider();
+
+            Application.Run(ServiceProvider.GetRequiredService<RegisterForm>());
         }
     }
 }

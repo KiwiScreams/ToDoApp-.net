@@ -23,5 +23,12 @@ namespace ToDoApp_final.Services
             _context.Users.Add(user);
             _context.SaveChanges();
         }
+        public User? Login(string username, string password)
+        {
+            return _context.Users
+                .FirstOrDefault(user =>
+                    user.Username == username &&
+                    user.Password == password);
+        }
     }
 }
