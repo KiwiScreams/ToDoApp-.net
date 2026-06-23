@@ -32,6 +32,7 @@
             usernameLabel = new Label();
             label2 = new Label();
             label1 = new Label();
+            button1 = new Button();
             SuspendLayout();
             // 
             // logoutButton
@@ -80,11 +81,24 @@
             label1.TabIndex = 14;
             label1.Text = "YourTask";
             // 
+            // button1
+            // 
+            button1.BackColor = SystemColors.GradientInactiveCaption;
+            button1.Font = new Font("Arial Narrow", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.ForeColor = SystemColors.InfoText;
+            button1.Location = new Point(499, 173);
+            button1.Name = "button1";
+            button1.Size = new Size(120, 33);
+            button1.TabIndex = 19;
+            button1.Text = "Edit Account";
+            button1.UseVisualStyleBackColor = false;
+            // 
             // HomeForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(801, 547);
+            Controls.Add(button1);
             Controls.Add(logoutButton);
             Controls.Add(usernameLabel);
             Controls.Add(label2);
@@ -101,5 +115,6 @@
         private Label usernameLabel;
         private Label label2;
         private Label label1;
+        private Button button1;
     }
 }
