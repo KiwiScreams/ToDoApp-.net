@@ -13,21 +13,30 @@ namespace ToDoApp_final.Services
         {
             _context = context;
         }
-        public void AddUser(string username, string password)
+        public bool AddUser(string username, string email, string password)
         {
+            bool emailExists = _context.Users.Any(user => user.Email == email);
+
+            if (emailExists)
+            {
+                return false;
+            }
             User user = new User
             {
                 Username = username,
+                Email = email,
                 Password = password
             };
             _context.Users.Add(user);
             _context.SaveChanges();
+            return true;
         }
-        public User? Login(string username, string password)
+
+        public User? Login(string email, string password)
         {
             return _context.Users
                 .FirstOrDefault(user =>
-                    user.Username == username &&
+                    user.Email == email &&
                     user.Password == password);
         }
     }

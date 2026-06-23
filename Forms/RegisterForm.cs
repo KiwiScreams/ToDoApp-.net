@@ -16,26 +16,57 @@ namespace ToDoApp_final.Forms
         private void registerButton_Click(object sender, EventArgs e)
         {
             string username = registerUsernameInput.Text.Trim();
+            string email = registerEmailInput.Text.Trim();
             string password = registerPasswordInput.Text.Trim();
 
             if (string.IsNullOrEmpty(username))
             {
-                MessageBox.Show("Username cannot be empty");
+                MessageBox.Show("Enter your username");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(email))
+            {
+                MessageBox.Show("Enter your email");
+                return;
+            }
+
+            if (!email.Contains("@") || !email.Contains("."))
+            {
+                MessageBox.Show("Enter correct email");
                 return;
             }
 
             if (string.IsNullOrEmpty(password))
             {
-                MessageBox.Show("Password cannot be empty");
+                MessageBox.Show("Enter your password");
                 return;
             }
 
-            _userService.AddUser(username, password);
+            if (password.Length < 6)
+            {
+                MessageBox.Show("Password must be at least 6 characters");
+                return;
+            }
 
-            MessageBox.Show("Success");
+            bool success = _userService.AddUser(username, email, password);
+
+            if (!success)
+            {
+                MessageBox.Show("User with this email already exists");
+                return;
+            }
+
+            MessageBox.Show("Registration successful");
 
             registerUsernameInput.Clear();
+            registerEmailInput.Clear();
             registerPasswordInput.Clear();
+
+            this.Hide();
+
+            LoginForm loginForm = new LoginForm(_userService);
+            loginForm.Show();
         }
 
         private void SignInButton_Click(object sender, EventArgs e)

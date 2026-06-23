@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            registerButton = new Button();
+            loginButton = new Button();
             registerPasswordInput = new TextBox();
-            registerUsernameInput = new TextBox();
+            registerEmailInput = new TextBox();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
@@ -39,17 +39,18 @@
             SignUpButton = new Button();
             SuspendLayout();
             // 
-            // registerButton
+            // loginButton
             // 
-            registerButton.BackColor = SystemColors.MenuHighlight;
-            registerButton.Font = new Font("Snap ITC", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            registerButton.ForeColor = SystemColors.ButtonFace;
-            registerButton.Location = new Point(216, 336);
-            registerButton.Name = "registerButton";
-            registerButton.Size = new Size(368, 96);
-            registerButton.TabIndex = 13;
-            registerButton.Text = "Sign In";
-            registerButton.UseVisualStyleBackColor = false;
+            loginButton.BackColor = SystemColors.MenuHighlight;
+            loginButton.Font = new Font("Snap ITC", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            loginButton.ForeColor = SystemColors.ButtonFace;
+            loginButton.Location = new Point(216, 336);
+            loginButton.Name = "loginButton";
+            loginButton.Size = new Size(368, 96);
+            loginButton.TabIndex = 13;
+            loginButton.Text = "Sign In";
+            loginButton.UseVisualStyleBackColor = false;
+            loginButton.Click += loginButton_Click_1;
             // 
             // registerPasswordInput
             // 
@@ -58,12 +59,12 @@
             registerPasswordInput.Size = new Size(250, 27);
             registerPasswordInput.TabIndex = 12;
             // 
-            // registerUsernameInput
+            // registerEmailInput
             // 
-            registerUsernameInput.Location = new Point(408, 199);
-            registerUsernameInput.Name = "registerUsernameInput";
-            registerUsernameInput.Size = new Size(250, 27);
-            registerUsernameInput.TabIndex = 11;
+            registerEmailInput.Location = new Point(408, 199);
+            registerEmailInput.Name = "registerEmailInput";
+            registerEmailInput.Size = new Size(250, 27);
+            registerEmailInput.TabIndex = 11;
             // 
             // label4
             // 
@@ -83,9 +84,9 @@
             label3.ForeColor = SystemColors.InfoText;
             label3.Location = new Point(131, 184);
             label3.Name = "label3";
-            label3.Size = new Size(229, 44);
+            label3.Size = new Size(232, 44);
             label3.TabIndex = 9;
-            label3.Text = "Your Name";
+            label3.Text = "Your Email";
             // 
             // label2
             // 
@@ -140,9 +141,9 @@
             ClientSize = new Size(806, 538);
             Controls.Add(SignUpButton);
             Controls.Add(label5);
-            Controls.Add(registerButton);
+            Controls.Add(loginButton);
             Controls.Add(registerPasswordInput);
-            Controls.Add(registerUsernameInput);
+            Controls.Add(registerEmailInput);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -155,9 +156,9 @@
 
         #endregion
 
-        private Button registerButton;
+        private Button loginButton;
         private TextBox registerPasswordInput;
-        private TextBox registerUsernameInput;
+        private TextBox registerEmailInput;
         private Label label4;
         private Label label3;
         private Label label2;

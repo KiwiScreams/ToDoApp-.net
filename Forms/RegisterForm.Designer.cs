@@ -37,6 +37,8 @@
             registerButton = new Button();
             SignInButton = new Button();
             label5 = new Label();
+            registerEmailInput = new TextBox();
+            label6 = new Label();
             SuspendLayout();
             // 
             // label1
@@ -77,7 +79,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Snap ITC", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.ForeColor = SystemColors.InfoText;
-            label4.Location = new Point(170, 240);
+            label4.Location = new Point(170, 292);
             label4.Name = "label4";
             label4.Size = new Size(204, 44);
             label4.TabIndex = 3;
@@ -85,14 +87,14 @@
             // 
             // registerUsernameInput
             // 
-            registerUsernameInput.Location = new Point(447, 190);
+            registerUsernameInput.Location = new Point(469, 190);
             registerUsernameInput.Name = "registerUsernameInput";
             registerUsernameInput.Size = new Size(250, 27);
             registerUsernameInput.TabIndex = 4;
             // 
             // registerPasswordInput
             // 
-            registerPasswordInput.Location = new Point(447, 255);
+            registerPasswordInput.Location = new Point(469, 307);
             registerPasswordInput.Name = "registerPasswordInput";
             registerPasswordInput.Size = new Size(250, 27);
             registerPasswordInput.TabIndex = 5;
@@ -102,7 +104,7 @@
             registerButton.BackColor = SystemColors.MenuHighlight;
             registerButton.Font = new Font("Snap ITC", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
             registerButton.ForeColor = SystemColors.ButtonFace;
-            registerButton.Location = new Point(255, 327);
+            registerButton.Location = new Point(253, 388);
             registerButton.Name = "registerButton";
             registerButton.Size = new Size(368, 96);
             registerButton.TabIndex = 6;
@@ -115,7 +117,7 @@
             SignInButton.BackColor = SystemColors.ButtonHighlight;
             SignInButton.Font = new Font("Snap ITC", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             SignInButton.ForeColor = Color.RoyalBlue;
-            SignInButton.Location = new Point(513, 429);
+            SignInButton.Location = new Point(511, 490);
             SignInButton.Name = "SignInButton";
             SignInButton.Size = new Size(110, 36);
             SignInButton.TabIndex = 17;
@@ -128,17 +130,37 @@
             label5.AutoSize = true;
             label5.Font = new Font("Arial Narrow", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label5.ForeColor = SystemColors.InfoText;
-            label5.Location = new Point(255, 436);
+            label5.Location = new Point(253, 497);
             label5.Name = "label5";
             label5.Size = new Size(200, 24);
             label5.TabIndex = 16;
             label5.Text = "Already have an account?";
+            // 
+            // registerEmailInput
+            // 
+            registerEmailInput.Location = new Point(469, 249);
+            registerEmailInput.Name = "registerEmailInput";
+            registerEmailInput.Size = new Size(250, 27);
+            registerEmailInput.TabIndex = 19;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Snap ITC", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label6.ForeColor = SystemColors.InfoText;
+            label6.Location = new Point(170, 234);
+            label6.Name = "label6";
+            label6.Size = new Size(293, 44);
+            label6.TabIndex = 18;
+            label6.Text = "Email Address";
             // 
             // RegisterForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(879, 553);
+            Controls.Add(registerEmailInput);
+            Controls.Add(label6);
             Controls.Add(SignInButton);
             Controls.Add(label5);
             Controls.Add(registerButton);
@@ -165,5 +187,7 @@
         private Button registerButton;
         private Button SignInButton;
         private Label label5;
+        private TextBox registerEmailInput;
+        private Label label6;
     }
 }

@@ -28,12 +28,78 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "HomeForm";
+            logoutButton = new Button();
+            usernameLabel = new Label();
+            label2 = new Label();
+            label1 = new Label();
+            SuspendLayout();
+            // 
+            // logoutButton
+            // 
+            logoutButton.BackColor = SystemColors.GradientInactiveCaption;
+            logoutButton.Font = new Font("Snap ITC", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            logoutButton.ForeColor = SystemColors.MenuHighlight;
+            logoutButton.Location = new Point(573, 481);
+            logoutButton.Name = "logoutButton";
+            logoutButton.Size = new Size(184, 54);
+            logoutButton.TabIndex = 18;
+            logoutButton.Text = "Log out";
+            logoutButton.UseVisualStyleBackColor = false;
+            logoutButton.Click += logoutButton_Click;
+            // 
+            // usernameLabel
+            // 
+            usernameLabel.AutoSize = true;
+            usernameLabel.Font = new Font("Snap ITC", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            usernameLabel.ForeColor = SystemColors.InfoText;
+            usernameLabel.Location = new Point(390, 126);
+            usernameLabel.Name = "usernameLabel";
+            usernameLabel.Size = new Size(229, 44);
+            usernameLabel.TabIndex = 16;
+            usernameLabel.Text = "Your Name";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Snap ITC", 30F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = SystemColors.MenuHighlight;
+            label2.Location = new Point(114, 110);
+            label2.Name = "label2";
+            label2.Size = new Size(270, 64);
+            label2.TabIndex = 15;
+            label2.Text = "Welcome";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Snap ITC", 49.8000031F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = SystemColors.MenuHighlight;
+            label1.Location = new Point(171, 18);
+            label1.Name = "label1";
+            label1.Size = new Size(498, 108);
+            label1.TabIndex = 14;
+            label1.Text = "YourTask";
+            // 
+            // HomeForm
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(801, 547);
+            Controls.Add(logoutButton);
+            Controls.Add(usernameLabel);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Name = "HomeForm";
+            Text = "HomeForm";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Button logoutButton;
+        private Label usernameLabel;
+        private Label label2;
+        private Label label1;
     }
 }
