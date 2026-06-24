@@ -34,6 +34,7 @@ namespace ToDoApp_final
                 options.UseSqlServer(connectionString));
 
             services.AddTransient<UserService>();
+            services.AddTransient<TaskService>();
 
             services.AddTransient<RegisterForm>();
 
