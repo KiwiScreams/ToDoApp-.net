@@ -35,12 +35,30 @@ namespace ToDoApp_final.Services
                 Description = description,
                 IsCompleted = false
             };
-
             _context.Tasks.Add(task);
             _context.SaveChanges();
-
             return true;
         }
+        public bool UpdateTask(int taskId, string title, string? description, int categoryId)
+        {
+            TaskItem? task = _context.Tasks
+                .FirstOrDefault(task => task.Id == taskId);
 
+            if (task == null)
+            {
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(title))
+            {
+                return false;
+            }
+
+            task.Title = title;
+            task.Description = description;
+            task.CategoryId = categoryId;
+            _context.SaveChanges();
+            return true;
+        }
     }
 }
