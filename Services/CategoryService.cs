@@ -66,6 +66,24 @@ namespace ToDoApp_final.Services
             _context.SaveChanges();
             return true;
         }
+        public bool DeleteCategory(int categoryId)
+        {
+            Category? category = _context.Categories
+                .FirstOrDefault(category => category.Id == categoryId);
+
+            if (category == null)
+            {
+                return false;
+            }
+            bool hasTasks = _context.Tasks.Any(task => task.CategoryId == categoryId);
+            if (hasTasks)
+            {
+                return false;
+            }
+            _context.Categories.Remove(category);
+            _context.SaveChanges();
+            return true;
+        }
 
     }
 }
