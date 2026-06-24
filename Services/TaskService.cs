@@ -73,5 +73,19 @@ namespace ToDoApp_final.Services
             _context.SaveChanges();
             return true;
         }
+        public bool ChangeCompletedStatus(int taskId, bool isCompleted)
+        {
+            TaskItem? task = _context.Tasks
+                .FirstOrDefault(task => task.Id == taskId);
+
+            if (task == null)
+            {
+                return false;
+            }
+
+            task.IsCompleted = isCompleted;
+            _context.SaveChanges();
+            return true;
+        }
     }
 }

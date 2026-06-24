@@ -35,6 +35,7 @@ namespace ToDoApp_final
 
             services.AddTransient<UserService>();
             services.AddTransient<TaskService>();
+            services.AddTransient<CategoryService>();
 
             services.AddTransient<RegisterForm>();
 
