@@ -37,11 +37,35 @@ namespace ToDoApp_final.Services
             {
                 Name = name
             };
-
             _context.Categories.Add(category);
             _context.SaveChanges();
-
             return true;
         }
+        public bool UpdateCategory(int categoryId, string name)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                return false;
+            }
+
+            Category? category = _context.Categories
+                .FirstOrDefault(category => category.Id == categoryId);
+            if (category == null)
+            {
+                return false;
+            }
+            bool categoryNameExists = _context.Categories.Any(otherCategory =>
+                otherCategory.Name == name &&
+                otherCategory.Id != categoryId);
+
+            if (categoryNameExists)
+            {
+                return false;
+            }
+            category.Name = name;
+            _context.SaveChanges();
+            return true;
+        }
+
     }
 }
