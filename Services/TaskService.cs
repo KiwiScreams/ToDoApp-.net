@@ -20,5 +20,27 @@ namespace ToDoApp_final.Services
                 .Where(task => task.UserId == userId)
                 .ToList();
         }
+        public bool AddTask(int userId, int categoryId, string title, string? description)
+        {
+            if (string.IsNullOrWhiteSpace(title))
+            {
+                return false;
+            }
+
+            TaskItem task = new TaskItem
+            {
+                UserId = userId,
+                CategoryId = categoryId,
+                Title = title,
+                Description = description,
+                IsCompleted = false
+            };
+
+            _context.Tasks.Add(task);
+            _context.SaveChanges();
+
+            return true;
+        }
+
     }
 }
