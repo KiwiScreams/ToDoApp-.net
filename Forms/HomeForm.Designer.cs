@@ -30,9 +30,8 @@
         {
             logoutButton = new Button();
             usernameLabel = new Label();
-            label2 = new Label();
             label1 = new Label();
-            button1 = new Button();
+            editAccountButton = new Button();
             SuspendLayout();
             // 
             // logoutButton
@@ -53,22 +52,11 @@
             usernameLabel.AutoSize = true;
             usernameLabel.Font = new Font("Snap ITC", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
             usernameLabel.ForeColor = SystemColors.InfoText;
-            usernameLabel.Location = new Point(390, 126);
+            usernameLabel.Location = new Point(281, 115);
             usernameLabel.Name = "usernameLabel";
             usernameLabel.Size = new Size(229, 44);
             usernameLabel.TabIndex = 16;
             usernameLabel.Text = "Your Name";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Snap ITC", 30F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.ForeColor = SystemColors.MenuHighlight;
-            label2.Location = new Point(114, 110);
-            label2.Name = "label2";
-            label2.Size = new Size(270, 64);
-            label2.TabIndex = 15;
-            label2.Text = "Welcome";
             // 
             // label1
             // 
@@ -81,27 +69,27 @@
             label1.TabIndex = 14;
             label1.Text = "YourTask";
             // 
-            // button1
+            // editAccountButton
             // 
-            button1.BackColor = SystemColors.GradientInactiveCaption;
-            button1.Font = new Font("Arial Narrow", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.ForeColor = SystemColors.InfoText;
-            button1.Location = new Point(499, 173);
-            button1.Name = "button1";
-            button1.Size = new Size(120, 33);
-            button1.TabIndex = 19;
-            button1.Text = "Edit Account";
-            button1.UseVisualStyleBackColor = false;
+            editAccountButton.BackColor = SystemColors.GradientInactiveCaption;
+            editAccountButton.Font = new Font("Arial Narrow", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            editAccountButton.ForeColor = SystemColors.InfoText;
+            editAccountButton.Location = new Point(499, 173);
+            editAccountButton.Name = "editAccountButton";
+            editAccountButton.Size = new Size(120, 33);
+            editAccountButton.TabIndex = 19;
+            editAccountButton.Text = "Edit Account";
+            editAccountButton.UseVisualStyleBackColor = false;
+            editAccountButton.Click += editAccountButton_Click;
             // 
             // HomeForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(801, 547);
-            Controls.Add(button1);
+            Controls.Add(editAccountButton);
             Controls.Add(logoutButton);
             Controls.Add(usernameLabel);
-            Controls.Add(label2);
             Controls.Add(label1);
             Name = "HomeForm";
             Text = "HomeForm";
@@ -113,8 +101,7 @@
 
         private Button logoutButton;
         private Label usernameLabel;
-        private Label label2;
         private Label label1;
-        private Button button1;
+        private Button editAccountButton;
     }
 }

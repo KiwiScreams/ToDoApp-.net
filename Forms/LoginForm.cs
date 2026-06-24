@@ -47,7 +47,7 @@ namespace ToDoApp_final.Forms
                 return;
             }
 
-            HomeForm homeForm = new HomeForm(_userService, user.Username);
+            HomeForm homeForm = new HomeForm(_userService, user.Id);
             homeForm.Show();
 
             this.Hide();
