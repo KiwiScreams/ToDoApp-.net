@@ -60,5 +60,18 @@ namespace ToDoApp_final.Services
             _context.SaveChanges();
             return true;
         }
+        public bool DeleteTask(int taskId)
+        {
+            TaskItem? task = _context.Tasks
+                .FirstOrDefault(task => task.Id == taskId);
+
+            if (task == null)
+            {
+                return false;
+            }
+            _context.Tasks.Remove(task);
+            _context.SaveChanges();
+            return true;
+        }
     }
 }
