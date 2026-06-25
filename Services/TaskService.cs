@@ -20,7 +20,7 @@ namespace ToDoApp_final.Services
                 .Where(task => task.UserId == userId)
                 .ToList();
         }
-        public bool AddTask(int userId, int categoryId, string title, string? description)
+        public bool AddTask(int userId, string category, string title, string? description)
         {
             if (string.IsNullOrWhiteSpace(title))
             {
@@ -30,7 +30,7 @@ namespace ToDoApp_final.Services
             TaskItem task = new TaskItem
             {
                 UserId = userId,
-                CategoryId = categoryId,
+                Category = category,
                 Title = title,
                 Description = description,
                 IsCompleted = false
@@ -39,7 +39,7 @@ namespace ToDoApp_final.Services
             _context.SaveChanges();
             return true;
         }
-        public bool UpdateTask(int taskId, string title, string? description, int categoryId)
+        public bool UpdateTask(int taskId, string title, string? description, string category)
         {
             TaskItem? task = _context.Tasks
                 .FirstOrDefault(task => task.Id == taskId);
@@ -56,7 +56,7 @@ namespace ToDoApp_final.Services
 
             task.Title = title;
             task.Description = description;
-            task.CategoryId = categoryId;
+            task.Category = category;
             _context.SaveChanges();
             return true;
         }

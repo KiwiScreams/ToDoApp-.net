@@ -39,7 +39,7 @@
             logoutButton.BackColor = SystemColors.GradientInactiveCaption;
             logoutButton.Font = new Font("Snap ITC", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
             logoutButton.ForeColor = SystemColors.MenuHighlight;
-            logoutButton.Location = new Point(573, 481);
+            logoutButton.Location = new Point(12, 600);
             logoutButton.Name = "logoutButton";
             logoutButton.Size = new Size(184, 54);
             logoutButton.TabIndex = 18;
@@ -86,7 +86,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(801, 547);
+            ClientSize = new Size(794, 666);
             Controls.Add(editAccountButton);
             Controls.Add(logoutButton);
             Controls.Add(usernameLabel);

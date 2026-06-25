@@ -6,7 +6,6 @@ namespace ToDoApp_final.Forms
     public partial class RegisterForm : Form
     {
         private readonly UserService _userService;
-
         public RegisterForm(UserService userService)
         {
             InitializeComponent();

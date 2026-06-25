@@ -9,7 +9,8 @@ namespace ToDoApp_final
 {
     internal static class Program
     {
-        public static ServiceProvider ServiceProvider { get; private set; } = null!;
+        public static ServiceProvider ServiceProvider { get; private set; }
+
 
         [STAThread]
         static void Main()
@@ -35,9 +36,11 @@ namespace ToDoApp_final
 
             services.AddTransient<UserService>();
             services.AddTransient<TaskService>();
-            services.AddTransient<CategoryService>();
 
             services.AddTransient<RegisterForm>();
+            services.AddTransient<LoginForm>();
+            services.AddTransient<EditAccount>();
+            services.AddTransient<HomeForm>();
 
             ServiceProvider = services.BuildServiceProvider();
 
