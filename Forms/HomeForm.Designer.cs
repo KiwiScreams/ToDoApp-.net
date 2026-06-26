@@ -32,6 +32,7 @@
             usernameLabel = new Label();
             label1 = new Label();
             editAccountButton = new Button();
+            addTaskBtn = new Button();
             SuspendLayout();
             // 
             // logoutButton
@@ -82,11 +83,25 @@
             editAccountButton.UseVisualStyleBackColor = false;
             editAccountButton.Click += editAccountButton_Click;
             // 
+            // addTaskBtn
+            // 
+            addTaskBtn.BackColor = SystemColors.MenuHighlight;
+            addTaskBtn.Font = new Font("Snap ITC", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            addTaskBtn.ForeColor = SystemColors.Info;
+            addTaskBtn.Location = new Point(694, 572);
+            addTaskBtn.Name = "addTaskBtn";
+            addTaskBtn.Size = new Size(88, 82);
+            addTaskBtn.TabIndex = 20;
+            addTaskBtn.Text = "+";
+            addTaskBtn.UseVisualStyleBackColor = false;
+            addTaskBtn.Click += addTaskBtn_Click;
+            // 
             // HomeForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(794, 666);
+            Controls.Add(addTaskBtn);
             Controls.Add(editAccountButton);
             Controls.Add(logoutButton);
             Controls.Add(usernameLabel);
@@ -103,5 +118,6 @@
         private Label usernameLabel;
         private Label label1;
         private Button editAccountButton;
+        private Button addTaskBtn;
     }
 }

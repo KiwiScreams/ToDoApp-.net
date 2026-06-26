@@ -16,7 +16,6 @@ namespace ToDoApp_final.Services
         public List<TaskItem> GetTasksByUserId(int userId)
         {
             return _context.Tasks
-                .Include(task => task.Category)
                 .Where(task => task.UserId == userId)
                 .ToList();
         }
@@ -30,16 +29,16 @@ namespace ToDoApp_final.Services
             TaskItem task = new TaskItem
             {
                 UserId = userId,
+                Title = title.Trim(),
                 Category = category,
-                Title = title,
-                Description = description,
+                Description = description?.Trim(),
                 IsCompleted = false
             };
             _context.Tasks.Add(task);
             _context.SaveChanges();
             return true;
         }
-        public bool UpdateTask(int taskId, string title, string? description, string category)
+        public bool UpdateTask(int taskId, string title, string? description, string category, bool isCompleted)
         {
             TaskItem? task = _context.Tasks
                 .FirstOrDefault(task => task.Id == taskId);
@@ -54,9 +53,10 @@ namespace ToDoApp_final.Services
                 return false;
             }
 
-            task.Title = title;
-            task.Description = description;
+            task.Title = title.Trim();
+            task.Description = description?.Trim();
             task.Category = category;
+            task.IsCompleted = isCompleted;
             _context.SaveChanges();
             return true;
         }

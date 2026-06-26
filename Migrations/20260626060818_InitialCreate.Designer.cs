@@ -11,8 +11,8 @@ using ToDoApp_final.Data;
 namespace ToDoApp_final.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260624095004_AddUserCategories")]
-    partial class AddUserCategories
+    [Migration("20260626060818_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,28 +24,6 @@ namespace ToDoApp_final.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("ToDoApp_final.Models.Category", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Categories");
-                });
-
             modelBuilder.Entity("ToDoApp_final.Models.TaskItem", b =>
                 {
                     b.Property<int>("Id")
@@ -54,8 +32,9 @@ namespace ToDoApp_final.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
+                    b.Property<string>("Category")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
@@ -71,8 +50,6 @@ namespace ToDoApp_final.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
 
                     b.HasIndex("UserId");
 
@@ -104,45 +81,19 @@ namespace ToDoApp_final.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("ToDoApp_final.Models.Category", b =>
-                {
-                    b.HasOne("ToDoApp_final.Models.User", "User")
-                        .WithMany("Categories")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("ToDoApp_final.Models.TaskItem", b =>
                 {
-                    b.HasOne("ToDoApp_final.Models.Category", "Category")
-                        .WithMany("Tasks")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("ToDoApp_final.Models.User", "User")
                         .WithMany("Tasks")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Category");
-
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("ToDoApp_final.Models.Category", b =>
-                {
-                    b.Navigation("Tasks");
                 });
 
             modelBuilder.Entity("ToDoApp_final.Models.User", b =>
                 {
-                    b.Navigation("Categories");
-
                     b.Navigation("Tasks");
                 });
 #pragma warning restore 612, 618

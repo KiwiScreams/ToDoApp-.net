@@ -17,6 +17,7 @@ namespace ToDoApp_final.Forms
     public partial class HomeForm : Form
     {
         private readonly UserService _userService;
+        private readonly TaskService _taskService;
         private int _userId;
         public HomeForm(UserService userService, int userId)
         {
@@ -51,6 +52,13 @@ namespace ToDoApp_final.Forms
             editAccountForm.ShowDialog();
 
             LoadUserData();
+        }
+
+        private void addTaskBtn_Click(object sender, EventArgs e)
+        {
+            TaskForm taskForm = new TaskForm(_taskService, _userId);
+            taskForm.Show();
+            this.Close();
         }
     }
 }
