@@ -9,17 +9,20 @@ namespace ToDoApp_final.Forms
     public partial class LoginForm : Form
     {
         private readonly UserService _userService;
+        private readonly TaskService _taskService;
 
-        public LoginForm(UserService userService)
+        public LoginForm(UserService userService, TaskService taskService)
         {
             InitializeComponent();
+
             _userService = userService;
+            _taskService = taskService;
         }
 
         private void SignUpButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            RegisterForm registerForm = new RegisterForm(_userService);
+            var registerForm = Program.ServiceProvider.GetRequiredService<RegisterForm>();
             registerForm.Show();
         }
 
@@ -48,7 +51,7 @@ namespace ToDoApp_final.Forms
                 return;
             }
 
-            HomeForm homeForm = new HomeForm(_userService, user.Id);
+            HomeForm homeForm = new HomeForm(_userService, _taskService, user.Id);
             homeForm.Show();
 
             this.Hide();

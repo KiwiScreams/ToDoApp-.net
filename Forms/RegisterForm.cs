@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.Extensions.DependencyInjection;
 using ToDoApp_final.Services;
 
 namespace ToDoApp_final.Forms
@@ -64,14 +65,14 @@ namespace ToDoApp_final.Forms
 
             this.Hide();
 
-            LoginForm loginForm = new LoginForm(_userService);
+            var loginForm = Program.ServiceProvider.GetRequiredService<LoginForm>();
             loginForm.Show();
         }
 
         private void SignInButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            LoginForm loginForm = new LoginForm(_userService);
+            var loginForm = Program.ServiceProvider.GetRequiredService<LoginForm>();
             loginForm.Show();
         }
     }

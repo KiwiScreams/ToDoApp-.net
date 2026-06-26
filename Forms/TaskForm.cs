@@ -22,13 +22,20 @@ namespace ToDoApp_final.Forms
         public TaskForm(TaskService taskService, int userId)
         {
             InitializeComponent();
-
             _taskService = taskService;
             _userId = userId;
-
             LoadCategories();
             saveBtn.Text = "Add";
         }
+
+        public TaskForm(TaskService taskService, int userId, TaskItem task)
+            : this(taskService, userId)
+        {
+            _task = task;
+            saveBtn.Text = "Save";
+            LoadTask();
+        }
+
         private void LoadCategories()
         {
             comboBox1.Items.Clear();
@@ -41,13 +48,16 @@ namespace ToDoApp_final.Forms
                 "Sport",
                 "Other"
             });
+
             comboBox1.SelectedIndex = 0;
         }
+
         private void LoadTask()
         {
             if (_task == null)
+            {
                 return;
-
+            }
             titleInput.Text = _task.Title;
             descInput.Text = _task.Description;
             comboBox1.Text = _task.Category;
@@ -69,27 +79,32 @@ namespace ToDoApp_final.Forms
                     _userId,
                     category,
                     title,
-                    description);
+                    description,
+                    isCompleted
+                );
             }
             else
             {
                 success = _taskService.UpdateTask(
                     _task.Id,
-                    category,
                     title,
                     description,
-                    isCompleted);
+                    category,
+                    isCompleted
+                );
             }
-
             if (!success)
             {
                 MessageBox.Show("Could not save task.");
                 return;
             }
+            DialogResult = DialogResult.OK;
+            Close();
         }
 
         private void cancelBtn_Click(object sender, EventArgs e)
         {
+            DialogResult = DialogResult.Cancel;
             Close();
         }
     }

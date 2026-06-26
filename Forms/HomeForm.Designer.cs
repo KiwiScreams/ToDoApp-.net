@@ -1,4 +1,6 @@
-﻿namespace ToDoApp_final.Forms
+﻿using static System.Windows.Forms.VisualStyles.VisualStyleElement.Menu;
+
+namespace ToDoApp_final.Forms
 {
     partial class HomeForm
     {
@@ -33,6 +35,10 @@
             label1 = new Label();
             editAccountButton = new Button();
             addTaskBtn = new Button();
+            todoPanel = new FlowLayoutPanel();
+            completedPanel = new FlowLayoutPanel();
+            label2 = new Label();
+            Done = new Label();
             SuspendLayout();
             // 
             // logoutButton
@@ -53,7 +59,7 @@
             usernameLabel.AutoSize = true;
             usernameLabel.Font = new Font("Snap ITC", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
             usernameLabel.ForeColor = SystemColors.InfoText;
-            usernameLabel.Location = new Point(281, 115);
+            usernameLabel.Location = new Point(282, 92);
             usernameLabel.Name = "usernameLabel";
             usernameLabel.Size = new Size(229, 44);
             usernameLabel.TabIndex = 16;
@@ -64,7 +70,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Snap ITC", 49.8000031F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label1.ForeColor = SystemColors.MenuHighlight;
-            label1.Location = new Point(171, 18);
+            label1.Location = new Point(161, -2);
             label1.Name = "label1";
             label1.Size = new Size(498, 108);
             label1.TabIndex = 14;
@@ -75,7 +81,7 @@
             editAccountButton.BackColor = SystemColors.GradientInactiveCaption;
             editAccountButton.Font = new Font("Arial Narrow", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             editAccountButton.ForeColor = SystemColors.InfoText;
-            editAccountButton.Location = new Point(499, 173);
+            editAccountButton.Location = new Point(498, 139);
             editAccountButton.Name = "editAccountButton";
             editAccountButton.Size = new Size(120, 33);
             editAccountButton.TabIndex = 19;
@@ -96,11 +102,63 @@
             addTaskBtn.UseVisualStyleBackColor = false;
             addTaskBtn.Click += addTaskBtn_Click;
             // 
+            // todoPanel
+            // 
+            todoPanel.AllowDrop = true;
+            todoPanel.AutoScroll = true;
+            todoPanel.BackColor = SystemColors.AppWorkspace;
+            todoPanel.BorderStyle = BorderStyle.FixedSingle;
+            todoPanel.FlowDirection = FlowDirection.TopDown;
+            todoPanel.Location = new Point(12, 247);
+            todoPanel.Name = "todoPanel";
+            todoPanel.Size = new Size(350, 307);
+            todoPanel.TabIndex = 21;
+            todoPanel.WrapContents = false;
+            // 
+            // completedPanel
+            // 
+            completedPanel.AllowDrop = true;
+            completedPanel.AutoScroll = true;
+            completedPanel.BackColor = SystemColors.ActiveCaption;
+            completedPanel.BorderStyle = BorderStyle.FixedSingle;
+            completedPanel.FlowDirection = FlowDirection.TopDown;
+            completedPanel.Location = new Point(429, 242);
+            completedPanel.Name = "completedPanel";
+            completedPanel.Size = new Size(350, 320);
+            completedPanel.TabIndex = 22;
+            completedPanel.WrapContents = false;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Snap ITC", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = SystemColors.InfoText;
+            label2.Location = new Point(117, 190);
+            label2.Name = "label2";
+            label2.Size = new Size(125, 44);
+            label2.TabIndex = 23;
+            label2.Text = "To Do";
+            // 
+            // Done
+            // 
+            Done.AutoSize = true;
+            Done.Font = new Font("Snap ITC", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Done.ForeColor = SystemColors.InfoText;
+            Done.Location = new Point(552, 190);
+            Done.Name = "Done";
+            Done.Size = new Size(107, 44);
+            Done.TabIndex = 24;
+            Done.Text = "Done";
+            // 
             // HomeForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(794, 666);
+            Controls.Add(Done);
+            Controls.Add(label2);
+            Controls.Add(completedPanel);
+            Controls.Add(todoPanel);
             Controls.Add(addTaskBtn);
             Controls.Add(editAccountButton);
             Controls.Add(logoutButton);
@@ -119,5 +177,9 @@
         private Label label1;
         private Button editAccountButton;
         private Button addTaskBtn;
+        private FlowLayoutPanel todoPanel;
+        private FlowLayoutPanel completedPanel;
+        private Label label2;
+        private Label Done;
     }
 }
