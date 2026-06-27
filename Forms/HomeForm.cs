@@ -136,6 +136,15 @@ namespace ToDoApp_final.Forms
                     LoadTasks();
                 }
             };
+            Button detailButton = new Button();
+            detailButton.Text = "Detail";
+            detailButton.Location = new Point(190, 105);
+            detailButton.Width = 80;
+            detailButton.Click += (sender, e) =>
+            {
+                TaskDetailForm detailForm = new TaskDetailForm(task);
+                detailForm.ShowDialog();
+            };
 
             card.MouseDown += TaskCard_MouseDown;
             titleLabel.MouseDown += TaskCard_MouseDown;
@@ -147,6 +156,7 @@ namespace ToDoApp_final.Forms
             card.Controls.Add(categoryLabel);
             card.Controls.Add(editButton);
             card.Controls.Add(deleteButton);
+            card.Controls.Add(detailButton);
 
             return card;
         }
