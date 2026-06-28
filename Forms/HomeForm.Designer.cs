@@ -189,7 +189,6 @@ namespace ToDoApp_final.Forms
             Controls.Add(usernameLabel);
             Controls.Add(label1);
             Name = "HomeForm";
-            Text = "HomeForm";
             ResumeLayout(false);
             PerformLayout();
         }
