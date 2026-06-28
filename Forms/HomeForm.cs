@@ -38,6 +38,8 @@ namespace ToDoApp_final.Forms
 
             LoadUserData();
             LoadTasks();
+            LoadCategoryFilter();
+            categoryFilter.SelectedIndexChanged += categoryFilter_SelectedIndexChanged;
         }
         private void LoadUserData()
         {
@@ -59,17 +61,26 @@ namespace ToDoApp_final.Forms
 
             var tasks = _taskService.GetTasksByUserId(_userId);
 
+            string selectedCategory = categoryFilter.SelectedItem?.ToString() ?? "All";
+
+            if (selectedCategory != "All")
+            {
+                tasks = tasks
+                    .Where(t => t.Category == selectedCategory)
+                    .ToList();
+            }
+
             foreach (var task in tasks)
             {
-                Panel taskCard = CreateTaskCard(task);
+                Panel taskPanel = CreateTaskCard(task);
 
                 if (task.IsCompleted)
                 {
-                    completedPanel.Controls.Add(taskCard);
+                    completedPanel.Controls.Add(taskPanel);
                 }
                 else
                 {
-                    todoPanel.Controls.Add(taskCard);
+                    todoPanel.Controls.Add(taskPanel);
                 }
             }
         }
@@ -218,7 +229,19 @@ namespace ToDoApp_final.Forms
 
             LoadTasks();
         }
-        //
+        private void LoadCategoryFilter()
+        {
+            categoryFilter.Items.Clear();
+
+            categoryFilter.Items.Add("All");
+            categoryFilter.Items.Add("Home");
+            categoryFilter.Items.Add("School");
+            categoryFilter.Items.Add("Work");
+            categoryFilter.Items.Add("Shopping");
+            categoryFilter.Items.Add("Sport");
+
+            categoryFilter.SelectedIndex = 0;
+        }
         private void logoutButton_Click(object sender, EventArgs e)
         {
             var loginForm = Program.ServiceProvider.GetRequiredService<LoginForm>();
@@ -241,6 +264,11 @@ namespace ToDoApp_final.Forms
             {
                 LoadTasks();
             }
+        }
+
+        private void categoryFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadTasks();
         }
     }
 }

@@ -39,6 +39,8 @@ namespace ToDoApp_final.Forms
             completedPanel = new FlowLayoutPanel();
             label2 = new Label();
             Done = new Label();
+            categoryFilter = new ComboBox();
+            label3 = new Label();
             SuspendLayout();
             // 
             // logoutButton
@@ -81,7 +83,7 @@ namespace ToDoApp_final.Forms
             editAccountButton.BackColor = SystemColors.GradientInactiveCaption;
             editAccountButton.Font = new Font("Arial Narrow", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             editAccountButton.ForeColor = SystemColors.InfoText;
-            editAccountButton.Location = new Point(498, 139);
+            editAccountButton.Location = new Point(212, 621);
             editAccountButton.Name = "editAccountButton";
             editAccountButton.Size = new Size(120, 33);
             editAccountButton.TabIndex = 19;
@@ -150,11 +152,33 @@ namespace ToDoApp_final.Forms
             Done.TabIndex = 24;
             Done.Text = "Done";
             // 
+            // categoryFilter
+            // 
+            categoryFilter.FormattingEnabled = true;
+            categoryFilter.Location = new Point(316, 205);
+            categoryFilter.Name = "categoryFilter";
+            categoryFilter.Size = new Size(151, 28);
+            categoryFilter.TabIndex = 25;
+            categoryFilter.SelectedIndexChanged += categoryFilter_SelectedIndexChanged;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Snap ITC", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.ForeColor = SystemColors.InfoText;
+            label3.Location = new Point(282, 178);
+            label3.Name = "label3";
+            label3.Size = new Size(204, 24);
+            label3.TabIndex = 26;
+            label3.Text = "Filter by Category";
+            // 
             // HomeForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(794, 666);
+            Controls.Add(label3);
+            Controls.Add(categoryFilter);
             Controls.Add(Done);
             Controls.Add(label2);
             Controls.Add(completedPanel);
@@ -181,5 +205,7 @@ namespace ToDoApp_final.Forms
         private FlowLayoutPanel completedPanel;
         private Label label2;
         private Label Done;
+        private ComboBox categoryFilter;
+        private Label label3;
     }
 }
