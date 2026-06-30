@@ -251,7 +251,8 @@ namespace ToDoApp_final.Forms
 
         private void editAccountButton_Click(object sender, EventArgs e)
         {
-            var editAccountForm = Program.ServiceProvider.GetRequiredService<EditAccount>();
+            EditAccount editAccountForm = new EditAccount(_userService, _userId);
+
             editAccountForm.ShowDialog();
 
             LoadUserData();
